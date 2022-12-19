@@ -1,0 +1,39 @@
+Vim Shortcuts:
+	LESSON 4:
+geht zu nächster leeren Zeile 
+	strg+{ und strg+}
+jump
+	:zeilenNummer
+jump bei Brackets
+	%
+jump End line with $
+jump Begin line with 0
+
+	delete, yank, visual 
+	in, around
+	move: {,p,",), 
+
+
+-------> jump same position as last open: strg+o
+- file jumping (FuzzyFinder, Ctrl-P)
+	:find [file]
+	
+
+
+	SOME-THINGSTHINGS:
+- autocomplete (VimAwesome, YouCompleteMe)	
+Autocomplete words:
+	strg+x+n then n=next, p=prev
+
+for path completion: press in a path
+	strg+x+f
+	(for longer path just press agin strg+x+f)
+
+
+- visual filesystem navigation (NERDTree)
+- build integration
+ asfdasf"sadfasdfsdfiWi"
+- snippet
+
+
+

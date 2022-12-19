@@ -1,0 +1,112 @@
+Shortcuts-Overviews:
+
+ #1: (open command) Palette 
+	strg+shift+P 
+	example: open termin just type in: terminal
+	can be used with other things
+
+
+ #2:  Explorer Path
+	strg+P
+	open a file in the explorer
+
+ #3: Toggle Sidebar
+	strg+B
+
+ #4: Select Words
+	strg+D
+	Change instanzes of a word -> repeat pressing strg+D (select next instance of the word)
+
+ #5: Select all Words
+	strg+shift+L
+	Selects all occurencys of the word at onces
+
+	other way to do that: Search and Replace (Find)
+	strg+F
+
+ #6: Select current Word -> better way just press strg+D onces   
+ 	F2 
+ 	Change only the current word you are on 
+
+ #7: Open the Terminal
+ 	strg+shift+`
+
+ #8: Comment out
+	control+shitft+/
+
+ #9: Get Suggestions
+ 	control + space
+ 	also use again to toggle extra information of suggestion
+
+ #10: Fold or Unfold Block
+ 	control + shift + [
+
+ #11: User Settings
+	control+,
+
+
+Copy Paste Lines:
+ #12: 
+ strg+x -> cut line
+ strg+v -> paste 
+ strg+c -> coppy line
+ strg+shift+k -> kill line
+
+ Move a line: 
+ 	alt+up or down arrow
+ 
+ Select and copy multiple lines: 
+ 	alt+shift+up (or down)
+
+
+ #13: Multiline (add cursore)
+	Alt + Click 
+		or
+	strg+alt+up (or down) 
+	
+	strg+u (undos last cursor added)
+
+ #14: Quick move to open files: 
+ 	strg+tab
+
+ #15: Reopen last close Tabs:
+ 	strg+shift+T
+
+ #16: Close all Tabs:
+ 	strg+W	
+
+
+strg+j => toggle terminal
+strg+shift+` => jump to terminal
+strg+e => jump to open files
+
+
+//Quiz: 
+What does?
+ #1: (open command) Palette 
+ #2:  Explorer Path
+ #3: Toggle Sidebar
+ #4: Select Words
+ #5: Select all Words
+ #6: Select current Word -> better way just press strg+D onces   
+ #7: Open the Terminal
+ #8: Comment out
+ #9: Get Suggestions
+ #10: Fold or Unfold Block
+ #11: User Settings
+ #12: Line Shortcuts
+ #13: Multiline (add cursore)
+ #14: Quick move to open files: 
+ #15: Reopen last close Tabs:
+ #16: Close all Tabs:
+
+ toggle terminal
+ jump to terminal
+
+
+run programm -> strg + r (for run)
+
+
+
+
+

@@ -1,0 +1,25 @@
+Good-Practice:
+strg +
+	END and ANFANG:
+
+strg + -> letter
+alt +  -> word
+	FORWARD and BACKWARD
+
+strg + Delete letter
+alt + Delte word
+
+strg + Kill Line
+
+
+strg + R (reverse search history)
+
+Important new shit: 
+sudo !! - reruns prv command with sudo
+strg+d = kills current 
+strg+k = kill current trough the end
+strg+u = 
+strg+w = delete line
+strg+y = yank (contains last thing you cut)
+
+

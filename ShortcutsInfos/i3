@@ -1,0 +1,24 @@
+
+
+i3: 
+
+mod = alt 
+
+
+enter = new terminal
+d = start new applicaton
+
+
+e = split layout
+s = stacked layout (w = tabbed layout)
+
+
+shift + c = reload Configs
+shift + r = Reload  i3
+shift + e = Exit
+
+
+h,j,k,l (wie vim) move to the window
+shift + h,j,k,l move window
+
+

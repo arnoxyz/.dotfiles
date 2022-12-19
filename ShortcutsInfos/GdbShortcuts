@@ -1,0 +1,60 @@
+-------------------------------------------------------------------------------
+	START: add in gcc: -g
+gdb [executable], or gdb and then file [executable]
+r or run [arguments] 
+continue (continue until next braekpoint)
+-------------------------------------------------------------------------------
+	BREAKPOINTS:
+info breakpoints (lists of current breakpoints)
+break [SetBreakpoint by nameFunction|Line]
+clear [removeBreakpoint]
+-------------------------------------------------------------------------------
+	VARIABLES: (needs to be in the current scope)
+info watchpoints (lists of current watchpoints)
+print [printsVariable]
+watch [watchesVariable when written]
+rwatch [watches when read]
+awatch [all watch = when read or written]
+-------------------------------------------------------------------------------
+	FUNCTIONS:
+n or next -> moves NEXT statement in current function 
+	  -> stepts over function calls
+s or step -> moves t othe next statment 
+	  -> STEPS into function calls
+finish -> stepts until the end of the current function
+advance [position|funcname] -> step until this position
+until [lineNumber]
+
+-------------------------------------------------------------------------------
+	USEFUL-THINGS:	
+Enter -> repeats last command
+list (lists the code that is debugged)
+	list hello.c:5 - lists line 5
+q or quit (the session)
+-------------------------------------------------------------------------------
+
+
+more things
+strg+c and set a breakpoint (if you have forgotten to set one)
+	DISPLAY Variables:
+display [variableName] (ecach step of the code the value will be displayed)
+info display (show what numbers are current in display)
+print [variable]
+change variable on runtim with: set (i = 20)
+
+-----------------------------
+View Stack: bt or backtrace (BackTrace)
+help stack
+
+
+---------------------------------TUI MODE--------------------------------------
+gdb -tui (start with gui-mode)
+fs or focus [next|prev|src|cmd|regs|asm] - change window
+src window moving: +,-,<,>
+
+----------------------------------AUTOMATE DEBUGGING---------------------------
+and TESTING
+https://stackoverflow.com/questions/10748501/what-are-the-best-ways-to-automate-a-gdb-debugging-session
+
+
+Reference: https://beej.us/guide/bggdb/

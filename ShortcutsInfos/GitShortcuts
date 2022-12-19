@@ -1,0 +1,296 @@
+---------------------------------------------------------------------------------------------------
+Tutorial 1: Git-Tutorial
+1.)Create Git-Repo:
+git init  -> initialize git repo in the current working directly
+git status -> shows current changes and what is tracked  
+
+---------------------------------------------------------------------------------------------------
+2.)Create Version:
+git add [files-names]-> pick which changes are in the version (use . for all in the current folder)
+git commit -m "message" -> Creates version, version is named commit in git. 
+
+---------------------------------------------------------------------------------------------------
+3.)Config Name and Mail:
+git config --global user.email "yourMail"
+git config --global user.name "yourName"
+
+---------------------------------------------------------------------------------------------------
+4.)Version History: 
+git log -> show the version history
+
+---------------------------------------------------------------------------------------------------
+5.)Override Problems/ solve Prev. Commit
+Override: (when there are errors/problems in a commit) ->does not create a new commit
+	Changes go into the prev. commit
+git add .
+git commit -m "Name Commit" --amend
+git status
+
+---------------------------------------------------------------------------------------------------
+6.)Graphical User Interface with VS Code
+Staging Area -> changes that goes into the next Version (commit)
+Changes -> (working Area) all changes start here (not added in the staging area)
+
+Take Changes out of Staging Area (back into working Area) -> - Sign in the VS Code editor
+Git Command: 
+Resets Changes from the staging into the working area:
+	git reset [files-names] -> reverses add
+	git reset . -> reverse add for whole folder
+
+Checksout (Deletes) Changes from Working Area or Staging Area: (Deletes Changes!!!!!)
+	git checkout -- [files-names] -> checkout (Remove) Changes
+	git checkout -- . -> checkout (Remove) whole folder
+
+
+---------------------------------------------------------------------------------------------------
+7.) Completing the Version History
+Now we have 3 Commits (Versions). 
+
+
+---------------------------------------------------------------------------------------------------
+8.) Switch between Versions:
+
+View previous Version: 
+git checkout [committ HASH]
+	-> get to that commit (see all changes includig the previous before this commit was made)
+	-> no changes after that commit is visible 
+	-> head means the current commit we are looking at
+
+git log --all 
+	shows all Versions
+
+
+---------------------------------------------------------------------------------------------------
+9.) Restoring Code to a Previous Version 
+
+Makes a Branch when making a comitt in an older Version
+-> Version 1 -> version 2 -> Version 3
+	->Version 1 update
+
+See whole Tree: (see the branch what was created)
+git log --graph --all
+
+
+master (or main depending on version of git) => Branch Name 
+	--> always points on the last commit on the branch (easy way to switch to the last commit)t 
+git checkout master (goes to the master much easier than the HASH Code)
+
+
+Restore from Version 1: 
+git checkout [Hash from Version 1] [files to reset to that version or folder name] [files to reset]
+
+-> then commit on this with a new commit name and that was it :) now the files are on that stage
+
+10.) Delete Commits 
+git reset --hard HEAD~1  
+	-> delets last commit
+
+----------------------------------------------------------------------------------------------------
+Tutorial 2: Github-Tutorial
+---------------------------FEATURE1: Creating an online backup
+->create a rep on github
+->create link between lokal and online git repo:
+		----------------------------Create a link to remote repo----------------------
+	git remote add [giveAnameRemoteRepo] [URLofGithubRepo]
+		convention is: origin (remoteRepo)
+		----------------------------See a list of all linked Repos--------------------
+	git remote [-v]
+		list of all remote repos
+		-v = verbose (more details = url)
+		----------------------------Remove Repo---------------------------------------
+	git remote remove [nameOfRemoteRepo]
+		removes link
+		----------------------------PUSH to GIT---------------------------------------
+	git config --global credential.username "yourname" 
+	git push [toWichRemoteRepo] [WhichBranch]
+		branch -> last commit normally named (master or main)
+		remoteRepo -> normally named origin
+
+
+---------------------------FEATURE2: Sync Changes from local(computer) to online(github)-----------
+upload to github     = push (push into the web)
+	origin/master -> remote tracking branch (what is the master branch on github)
+
+		---------Shortcut: upstream---------------
+		git push origin master --set-upstream
+			now the next time just need to type:
+		git push
+
+		git push only pushes COMMITS!!!
+
+		---------ADD things to previous commit-----
+		git commit --amend -m [Name]
+			changes local commit but only will not be effected and
+			will create an branch. Now there will be an error when push 
+			online because it would delete the commit online.
+		git push origin master -f
+			-f = force push (overrides the online commit with the local)
+
+
+---------------------------FEATURE3: Sync Changes from online(github) to local(Computer)-----------
+download from github = pull (pull from the web)
+	git clone [urlRemoteRepository] [folderName]
+		clone = copy on computer
+		folderName = not needed, if not existing names is that form the only repo
+	
+		---------Update repo info from online-----
+	git fetch
+		Github does not automattically sync the branchInfos so this is the step
+		update all branches to current state in gitHub (the branch information)
+
+
+		---------Get Remote Repo to local---------
+	git pull [fromWichRemoteRepo] [WhichBranch]
+	
+		---------Shortcut: upstream---------------
+	git pull origin master --set-upstream
+
+
+---------------------------------------------------------------------------------------------------
+Tutorial 3: Branching and Merging
+--------------------------- 1.) Branching (working on multiple things on the same time)
+	work on a new feature, on working on that unfinished feature. There is a bug fix or 
+	other stuff to do that has nothing to do with that particulare feature. 	
+		So how to solve that problem?
+	Opening a new branch (like a tree, main branch and then there are other branchse)
+
+
+	------------------------Example: Branching
+		Add branch by:
+	git branch [nameOfBranch]
+	git branch feature1
+
+		new commit now on the feature1 branch: just switch with checkout to that branch
+	git checkout [branchName]
+	git cm "feautre1-implement1"
+	git cm "feautre1-implement2"
+		now all commits done will go in that branch
+
+
+		now we need to fix a bug in the main (master) branch: just switch to main (master) and then fix the bug and commit the changes
+	git checkout master
+	git cm "bug fixed"
+
+
+	to see all branches:
+		git log --all --graph
+
+
+--------------------------- 2.) Merging
+	Merging seperate branches into one: 
+		Example1: Combines different files into same branch
+			branch1: with file1
+			branch2: with file2
+			merge files: file1 and file2
+
+		Example2: Combines changes of the same file into that file
+			branch1: file1: line 2 deleted
+			branch2: file1: line 11 deleted
+			merge files: file1 with both changes (so line2 deleted and line 11 deleted)
+
+		
+		------------When merging two branches the result will go on the CURRENT Branch.
+		(generally use the master branch for merging all things together as final destination)
+
+
+		-----------------Merge two branches Example in Git: 
+			Switch to master:
+		git checkout master
+			merge feautre1 into master: git merge [branchToMerge] will automatically merge into current branch
+			optional message with -m "Message"
+		git merge feature1 [-m "Merge feature1"]
+
+		-----------------Merge Conflict
+		branch1: delete line 1 adds function alert();
+		branch2: delete line 1 adds function confirm();
+			So what to add?? Which change to add
+			git will tell yah: Automatic merge failed; fix conflicts and then commit the result.
+
+Git adds this infos in the file with conflicts: line1 and 2 belong to branch HEAD and 3,4 are from the branch conflict
+ <<<<<<< HEAD
+  1 function2();
+  2 =======
+  3 function1();
+  4 >>>>>>> conflict
+~
+
+		To fix that just delete all the stuff that is not needed so here it would be all except line 1:
+  			1 function2();
+
+		Also possible: delete everything and write new stuff into this: (maybe when both commits are dog shit)
+			1 newCode();
+
+	Now create a new Commit after the changes and then merge again. (now it works :D )
+	git add .
+	git commit -m "resolved conflicts"
+	git merge conflictBranch
+
+
+
+--------------------------- 3.) Feature Branch Workflow
+	what is a feature branch?
+		Workflow -> a step by step process using git and gitHub
+	
+	how about Code review? when in an team u just cant merge something, somebody needs to do a code review. But how??
+		here github helps us
+
+		Feautre Branch Workflow Overview:
+		1.)create a feature branch
+			create a new feature branch like in chapter 2.) Merging
+			git branch [newfeature1Name]
+			git add .
+			git cm "new commit1"
+
+		2.) upload feautre branch to github
+			-> now everybody of the team can see my code 
+			create a remote repo in github: (take the same name as computer folder)
+			git remote add origin [ssh-link]
+				switch to master then upload master
+			git checkout master
+				first upload master
+			git push origin master 
+				then upload the feature1 branch (switch to feature1 and upload it)
+			git checkout feature1
+			git push origin feature 
+
+		3.) create a pull request (do code reviews)
+			Go into: new pull request: to merge feature1 into master
+				base: master <- compare: feature1
+			-> then give your teammates the url of this request so they can review it
+
+		4.) merge feautre branch into master/main branch
+			(merging happens on github)
+			go to the pull request and accept by clicking: confirm merge
+
+
+	---------- update local repo (sync changes to the local repo)
+		get all updates
+	git fetch
+		check if everything is right
+	git log --all --graph
+		update local: switch to the local master and update that master
+	git checkout master
+	git pull origin master
+		check if local master branch is now in sync with repo (origin/master)
+	git log --all --graph
+		
+
+
+	How to follow that steps?
+
+
+
+
+
+Git-Overview: (TUTORIAL 1)
+git init
+git status
+git add [fileNames]
+git reset [fileNames] 	     <<<<---Reverse ADD
+git checkout -- [filesName]  <<<<<---- Remove Changes
+git log 
+git commit -m "Message"
+git checkout 
+git checkout [committ HASH]  <<<<-- Switch to that commit (head is now there)
+git log -all
+HEAD = Current Commit that is looked at
