@@ -1,11 +1,9 @@
 
-
 " copy and paste
 vmap <C-c> "+yi
 vmap <C-x> "+c
 vmap <C-v> c<ESC>"+p
 vmap <C-c> <ESC>"+pa
-
 
 set nocompatible
 filetype plugin on
@@ -43,8 +41,18 @@ autocmd FileType tex inoremap ;w \begin{wrapgfigure}{r}{3in}\includegraphics[wid
 "bibliograph
 "beamer
 
-
 "Other Stuff to add: 
 "--------------------------------C Stuff
 "--------------------------------Python Stuff
 "--------------------------------VHDL Stuff
+
+" folding
+set foldmethod=indent
+source $VIMRUNTIME/vimrc_example.vim
+
+" no stupid ~ files that garbage all my directories!!
+let &directory = expand('~/.vimdata/swap//')
+set backup
+let &backupdir = expand('~/.vimdata/backup//')
+set undofile
+let &undodir = expand('~/.vimdata/undo//')
