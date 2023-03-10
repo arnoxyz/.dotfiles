@@ -116,6 +116,15 @@ if ! shopt -oq posix; then
   fi
 fi
 
+#themes by theme.sh https://github.com/lemnos/theme.sh
+theme.sh helios
+
+#allow cd withouth typing cd (only pathname)
+shopt -s autocd
+
+#default editor vim
+export VISUAL=vim;
+export EDITOR=vim;
 
 #export PS1="\u[\W]:\\$\[$(tput sgr0)\]"
 export PS1="[\W]:"
