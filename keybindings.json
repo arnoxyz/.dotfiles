@@ -1,0 +1,23 @@
+//vscode config
+[
+{
+  "key": "ctrl+k",
+  "command": "workbench.action.focusActiveEditorGroup",
+  "when": "terminalFocus"
+},
+{
+  "key": "ctrl+j",
+  "command": "workbench.action.terminal.focus",
+  "when": "!terminalFocus"
+},
+{
+  "key": "ctrl+h",
+  "command": "workbench.action.focusPreviousGroup",
+  "when": "!terminalFocus"
+},
+{
+  "key": "ctrl+l",
+  "command": "workbench.action.focusNextGroup",
+  "when": "!terminalFocus"
+}
+]
